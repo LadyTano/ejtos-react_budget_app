@@ -11,5 +11,8 @@ const ExpenseTotal = () => {
             <span>Spent so far: £{totalExpenses}</span>
         </div>
     );
+
 };
+
 export default ExpenseTotal;
+
