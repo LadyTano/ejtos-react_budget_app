@@ -55,6 +55,7 @@ const App = () => {
 
                         {
                         <div className='col-sm'>
+                        
                             <AllocationForm />
                             </div>                        }   
 

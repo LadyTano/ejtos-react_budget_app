@@ -7,11 +7,14 @@ import React, { useState } from 'react';
 export default function CurrencyMenu ()
 {
 
-    const[value, setValue] = useState('');
+    const[value, setValue] = useState('£');
 
     const handleChange = (event) => {
+        const hello = document.getElementById("hello");
         setValue(event.target.value);
-        console.log(value);
+        let currencyValue = value;
+        console.log(currencyValue);
+        hello.innerHTML = currencyValue;
     }
     return (
    
@@ -19,9 +22,9 @@ export default function CurrencyMenu ()
    
         <select onChange={handleChange}>
    
+        <option value="£">£ Pound</option>
+
           <option value="$">$ Dollar</option>
-   
-          <option value="£">£ Pound</option>
    
           <option value="€">€ Euro</option>
           
