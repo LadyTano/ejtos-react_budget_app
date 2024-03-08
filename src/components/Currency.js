@@ -1,28 +1,31 @@
 
-//import { useContext } from 'react';
-//import { AppContext } from '../context/AppContext';
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 
+const white = {backgroundColor: "white"};
+const lightGreen = {backgroundColor: "lightGreen"};
 
 export default function CurrencyMenu ()
 {
 
-    const[value, setValue] = useState('£');
+    const [color, setColor] = useState(lightGreen);
 
-    const handleChange = (event) => {
+    const handleChange = () => {
+        const currencySymbol = document.getElementById("dropdown");
         const hello = document.getElementById("hello");
-        setValue(event.target.value);
-        let currencyValue = value;
-        console.log(currencyValue);
-        hello.innerHTML = currencyValue;
+        hello.innerHTML = currencySymbol.value;
+        
     }
+
+   
+    
     return (
    
       <div>
    
-        <select onChange={handleChange}>
+        <select style={color} onMouseEnter={() => setColor} onChange={handleChange} id = "dropdown">
    
-        <option value="£">£ Pound</option>
+        <option   value="£"  >£ Pound</option>
 
           <option value="$">$ Dollar</option>
    
@@ -31,8 +34,11 @@ export default function CurrencyMenu ()
           <option value="₹">₹ Ruppee</option>
    
         </select>
+
    
       </div>
+   
+
    
     );
    
