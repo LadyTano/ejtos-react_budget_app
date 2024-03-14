@@ -1,9 +1,15 @@
 
 import React from 'react';
+
+//import { AppContext } from '../context/AppContext';
 //import { useState } from 'react';
 
 //const white = {backgroundColor: "white"};
 //const lightGreen = {backgroundColor: "lightGreen"};
+
+
+
+
 
 export default function CurrencyMenu ()
 {
@@ -13,10 +19,16 @@ export default function CurrencyMenu ()
 
     const handleChange = () => {
         const currencySymbol = document.getElementById("dropdown");
-        const hello = document.getElementById("hello");
-        hello.innerHTML = currencySymbol.value;
-        
-    }
+        const budgetCurrency = document.getElementById("budgetCurrency");
+        const remainingCurrency = document.getElementById("remainingCurrency");
+        const spentCurrency = document.getElementById("spentCurrency");
+        const expenseCurrency = document.getElementsByClassName("expenseCurrency");
+        budgetCurrency.innerHTML = currencySymbol.value;
+        remainingCurrency.innerHTML = currencySymbol.value;
+        spentCurrency.innerHTML = currencySymbol.value
+        expenseCurrency.innerHTML = currencySymbol.value;
+    
+    }   
 
     function MouseOver(event) {
         event.target.style.background = 'white';
@@ -25,20 +37,23 @@ export default function CurrencyMenu ()
       function MouseOut(event){
         event.target.style.background="lightgreen";
       }
+
+      const overflow =   {overflow: "hidden"};
     
     return (
+        
    
-      <div >
+      <div style={{overflow}} >
    
-        <select size = "4" onMouseOver={MouseOver}  onMouseOut={MouseOut} onChange={handleChange} id = "dropdown" >
+        <select size = "1" onMouseOver={MouseOver}  onMouseOut={MouseOut} onChange={handleChange} id = "dropdown" >
         
         <option  value="£"  >£ Pound</option>
 
-          <option  value="$" onMouseOver={MouseOver} onMouseOut={MouseOut}>$ Dollar</option>
+          <option  value="$">$ Dollar</option>
    
-          <option  value="€" onMouseOver={MouseOver} onMouseOut={MouseOut}>€ Euro</option>
+          <option  value="€" >€ Euro</option>
           
-          <option  value="₹" onMouseOver={MouseOver} onMouseOut={MouseOut}>₹ Ruppee</option>
+          <option  value="₹" >₹ Ruppee</option>
    
         </select>
 

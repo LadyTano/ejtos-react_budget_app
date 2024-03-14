@@ -63,7 +63,6 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
-        <p id='hello'>Hello</p>
                     <input
                         required='required'
                         type='number'
@@ -73,7 +72,7 @@ const AllocationForm = (props) => {
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
                         
-                        <p id='allocationCurrency'>£</p>
+                        
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
