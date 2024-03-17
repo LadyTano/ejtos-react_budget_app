@@ -1,13 +1,46 @@
 
 import React from 'react';
 
+
 //import { AppContext } from '../context/AppContext';
 //import { useState } from 'react';
 
 //const white = {backgroundColor: "white"};
 //const lightGreen = {backgroundColor: "lightGreen"};
 
+const dropdownStyle = 
+{
+    backgroundColor: "lightGreen",
+    border: "solid",
+    borderColor: "lightgreen",
+    borderRadius: 4,
+    width: 100,
+    listStyle: "none",
+    padding: 0,
+    visibility: "hidden"
 
+}
+const dropdownButtonStyle = 
+{
+    backgroundColor: "lightGreen",
+    border: "solid",
+    borderColor: "lightgreen",
+    width: 100,
+    listStyle: "none",
+    padding: 0,
+    color: "white"
+
+}
+
+const dropdownOptions =
+{
+    border: "solid",
+    borderColor: "lightGreen",
+    borderRadius: 4,
+    borderWidth: 1,
+   
+    
+}
 
 
 
@@ -17,49 +50,68 @@ export default function CurrencyMenu ()
 //const [color, setColor] = useState(true);
 
 
-    const handleChange = () => {
-        const currencySymbol = document.getElementById("dropdown");
+    const handleChange = (event) => {
+        const currencySymbol = event.target.id;
         const budgetCurrency = document.getElementById("budgetCurrency");
         const remainingCurrency = document.getElementById("remainingCurrency");
         const spentCurrency = document.getElementById("spentCurrency");
-        const expenseCurrency = document.getElementsByClassName("expenseCurrency");
-        budgetCurrency.innerHTML = currencySymbol.value;
-        remainingCurrency.innerHTML = currencySymbol.value;
-        spentCurrency.innerHTML = currencySymbol.value
-        expenseCurrency.innerHTML = currencySymbol.value;
+        const expenseItem = document.getElementsByClassName("expenseCurrency");
+        const allocationCurrency = document.getElementById("allocationCurrency");
+
+        allocationCurrency.innerHTML = currencySymbol;
+        budgetCurrency.innerHTML = currencySymbol;
+        remainingCurrency.innerHTML = currencySymbol;
+        spentCurrency.innerHTML = currencySymbol
     
+        for(let i = 0; i <expenseItem.length; i++)
+        {
+            expenseItem[i].innerHTML = currencySymbol;
+        } 
+
+
+        hideDropdown();
     }   
 
     function MouseOver(event) {
         event.target.style.background = 'white';
-        console.log("Hover")
+        
       }
+
       function MouseOut(event){
         event.target.style.background="lightgreen";
       }
 
-      const overflow =   {overflow: "hidden"};
+      function showDropdown()
+      {
+        const dropdown = document.getElementById('dropdown');
+        dropdown.style.visibility="visible"
+
+      }
+
+      function hideDropdown()
+      {
+        const dropdown = document.getElementById('dropdown');
+        dropdown.style.visibility="hidden"
+      }
+
+      //const overflow =   {overflow: "hidden"};
+
     
     return (
+        <div id = "containerForDropdown">
         
-   
-      <div style={{overflow}} >
-   
-        <select size = "1" onMouseOver={MouseOver}  onMouseOut={MouseOut} onChange={handleChange} id = "dropdown" >
-        
-        <option  value="£"  >£ Pound</option>
+    <button id='showOrHideDropdown' style={dropdownButtonStyle} onClick={showDropdown}>Currency ▼</button>
 
-          <option  value="$">$ Dollar</option>
-   
-          <option  value="€" >€ Euro</option>
-          
-          <option  value="₹" >₹ Ruppee</option>
-   
-        </select>
+      
+        <ul id='dropdown' style={dropdownStyle} >
+            <li id= "£" style={dropdownOptions} onMouseEnter={MouseOver} onMouseLeave={MouseOut} onClick={handleChange}>£ Pound</li>
+            <li id= "$" style={dropdownOptions} onMouseEnter={MouseOver} onMouseLeave={MouseOut} onClick={handleChange}>$ Dollar</li>
+            <li id= "€" style={dropdownOptions} onMouseEnter={MouseOver} onMouseLeave={MouseOut} onClick={handleChange}>€ Euro</li>
+            <li id= "₹" style={dropdownOptions} onMouseEnter={MouseOver} onMouseLeave={MouseOut} onClick={handleChange}>₹ Ruppee</li>
+        </ul>
 
-   
       </div>
-   
+
 
    
     );

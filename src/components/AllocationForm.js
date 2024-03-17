@@ -4,7 +4,9 @@ import { AppContext } from '../context/AppContext';
 const inline =
 {
     display: "inline-block",
-    color: "blue"
+    marginLeft: "2em",
+    marginRight: 5,
+    fontSize: "1em"
 };
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
@@ -63,12 +65,13 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
+                  <p id='allocationCurrency' style={inline}>£</p>
                     <input
                         required='required'
                         type='number'
                         id='cost'
                         value={cost}
-                        style={{ marginLeft: '2rem' , size: 10, inline}}
+                        style={{ size: 10, inline}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
                         

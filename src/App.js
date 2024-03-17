@@ -27,7 +27,7 @@ const App = () => {
                     <div className='row mt-3'>
                         {
                                             // Budget component
-                    <div className='col-2'>
+                    <div className='col-4'>
                     <Budget />
                 </div>
                         }        

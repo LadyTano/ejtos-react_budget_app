@@ -2,6 +2,15 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
+const budgetStyle =
+{
+
+    width: "23em",
+   display: "flex",
+   flexWrap: "wrap",
+   marginRight: 0
+    
+};
 
 const Budget = () => {
     const { budget } = useContext(AppContext);
@@ -36,9 +45,10 @@ const Budget = () => {
 
 
     return (
-<div className='alert alert-secondary'>
-<span className='d-inline'>Budget: <div id='budgetCurrency' className='d-inline'>£</div>{budget}</span>
-<input type="number" step="10" value={newBudget} onChange={handleBudgetChange} ></input>
+<div className='alert alert-secondary' style={budgetStyle}>
+<div className='d-inline-block' style={{paddingRight: 5}}>Budget: </div>
+<div className='d-inline-block' id='budgetCurrency' style={{paddingRight: 5}}>£</div>
+<input className='d-inline-block' type="number" step="10" value={newBudget} onChange={handleBudgetChange} ></input>
 </div>
     );
 };
